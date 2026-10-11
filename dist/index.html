@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#18291f" />
+    <meta
+      name="description"
+      content="An open-model story adventure whose missing artifacts must be discovered outdoors."
+    />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Outside the Lines</title>
+  </head>
+  <body>
+    <main id="app">
+      <section class="screen welcome is-active" data-screen="welcome">
+        <div class="forest-stage" aria-hidden="true">
+          <div class="moon"></div>
+          <div class="hill hill-back"></div>
+          <div class="hill hill-front"></div>
+          <div class="tree tree-one"><i></i><i></i><i></i></div>
+          <div class="tree tree-two"><i></i><i></i><i></i></div>
+          <div class="tree tree-three"><i></i><i></i><i></i></div>
+          <div class="firefly f1"></div><div class="firefly f2"></div><div class="firefly f3"></div>
+        </div>
+
+        <header class="topbar">
+          <a class="wordmark" href="#" aria-label="Outside the Lines home">
+            <span class="wordmark-mark">O</span>
+            <span>Outside the Lines</span>
+          </a>
+          <button class="quiet-button" id="aboutButton" type="button">How it works</button>
+        </header>
+
+        <div class="hero-copy">
+          <p class="eyebrow">An open-model outdoor story</p>
+          <h1>Your world is<br /><em>part of the story.</em></h1>
+          <p class="hero-deck">
+            Step outside. Find the missing artifacts. Watch your discoveries change what happens next.
+          </p>
+          <button class="primary-button" id="beginButton" type="button">
+            Begin an adventure <span aria-hidden="true">↗</span>
+          </button>
+          <div class="privacy-pill">
+            <span class="pulse-dot"></span>
+            Photos are analyzed on your device
+          </div>
+        </div>
+
+        <p class="field-note">Best experienced outdoors · 15 minutes · headphones optional</p>
+      </section>
+
+      <section class="screen choose" data-screen="choose">
+        <header class="compact-header">
+          <button class="icon-button" data-back="welcome" aria-label="Back">←</button>
+          <span class="mini-mark">Outside the Lines</span>
+          <span class="step-label">01 / 04</span>
+        </header>
+        <div class="page-shell">
+          <p class="eyebrow dark">Choose your path</p>
+          <h2>Which story is calling?</h2>
+          <p class="section-intro">Each adventure unfolds around the objects you discover outside.</p>
+
+          <div class="theme-grid">
+            <button class="theme-card active-theme" id="forestTheme" type="button">
+              <div class="theme-art forest-card-art" aria-hidden="true">
+                <span class="sun-orb"></span><span class="arch-tree left"></span><span class="arch-tree right"></span>
+                <span class="path-line"></span><span class="wanderer"></span>
+              </div>
+              <div class="theme-copy">
+                <span class="theme-number">Adventure 01</span>
+                <h3>The Forest That Forgot</h3>
+                <p>Restore a vanishing woodland with three objects from your world.</p>
+                <span class="theme-meta">15 min · 3 discoveries</span>
+              </div>
+            </button>
+            <article class="theme-card locked">
+              <div class="theme-art city-card-art" aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="theme-copy">
+                <span class="theme-number">Adventure 02</span>
+                <h3>The Lantern District</h3>
+                <p>A neighborhood mystery written in shadows and overlooked clues.</p>
+                <span class="theme-meta">Coming soon</span>
+              </div>
+            </article>
+            <article class="theme-card locked">
+              <div class="theme-art tiny-card-art" aria-hidden="true"><span></span></div>
+              <div class="theme-copy">
+                <span class="theme-number">Adventure 03</span>
+                <h3>The Tiny Kingdom</h3>
+                <p>You have been shrunk. Ordinary nature is now an enormous world.</p>
+                <span class="theme-meta">Coming soon</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen chapter" data-screen="chapter">
+        <div class="chapter-art" aria-hidden="true">
+          <div class="paper-sky"></div>
+          <div class="paint-mountain m-one"></div><div class="paint-mountain m-two"></div>
+          <div class="paint-tree t-left"></div><div class="paint-tree t-right"></div>
+          <div class="fox"><span class="fox-tail"></span><span class="fox-body"></span><span class="fox-head"></span></div>
+          <div class="story-glow"></div>
+        </div>
+        <header class="chapter-header">
+          <button class="icon-button light" data-back="choose" aria-label="Back">←</button>
+          <div class="chapter-progress" aria-label="Story progress">
+            <span class="filled"></span><span></span><span></span><span></span>
+          </div>
+          <button class="icon-button light" id="narrateButton" aria-label="Read aloud">♪</button>
+        </header>
+        <div class="chapter-copy">
+          <p class="eyebrow warm" id="chapterKicker">Chapter one · The hush</p>
+          <h2 id="chapterTitle">The forest remembered everyone but itself.</h2>
+          <p id="chapterText">
+            At the edge of the path, you meet Eira—a fox with ink-dark paws. Names are disappearing from the trees, she tells you. Soon, even the way home will be forgotten.
+          </p>
+          <button class="primary-button parchment" id="continueStory" type="button">
+            Follow Eira <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen mission" data-screen="mission">
+        <header class="compact-header on-dark">
+          <button class="icon-button light" data-back="chapter" aria-label="Back">←</button>
+          <span class="mini-mark">Field mission</span>
+          <span class="step-label" id="missionCounter">1 of 3</span>
+        </header>
+        <div class="mission-shell">
+          <div class="mission-seal" aria-hidden="true"><span id="missionRoman">I</span></div>
+          <p class="eyebrow warm" id="missionKicker">The forgotten gate</p>
+          <h2 id="missionTitle">Find something that could unlock an ancient door.</h2>
+          <p id="missionHint">
+            There is no single right answer. A leaf, a twig, a stone—your imagination decides what it becomes.
+          </p>
+          <div class="safety-note"><span>✦</span> Stop somewhere safe before using your camera.</div>
+
+          <label class="camera-button" for="photoInput">
+            <span class="camera-icon" aria-hidden="true"></span>
+            Photograph your discovery
+          </label>
+          <input id="photoInput" type="file" accept="image/*" capture="environment" />
+          <button class="text-link" id="describeInstead" type="button">Describe it instead</button>
+        </div>
+      </section>
+
+      <section class="screen discovery" data-screen="discovery">
+        <header class="compact-header">
+          <button class="icon-button" data-back="mission" aria-label="Back">←</button>
+          <span class="mini-mark">Your discovery</span>
+          <span class="step-label" id="analysisBadge">Local AI</span>
+        </header>
+        <div class="discovery-shell">
+          <div class="artifact-frame">
+            <div class="artifact-image-wrap">
+              <img id="photoPreview" alt="Your outdoor discovery" />
+              <div class="sketch-overlay"></div>
+              <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+            </div>
+            <p class="artifact-caption" id="artifactCaption">An unnamed discovery</p>
+          </div>
+
+          <div class="discovery-copy">
+            <p class="eyebrow dark">Give it meaning</p>
+            <h2>What did you find?</h2>
+            <p>The open vision model will suggest an interpretation. You always get the final word.</p>
+            <label class="field-label" for="objectName">Your description</label>
+            <input id="objectName" type="text" maxlength="48" placeholder="e.g. a curled yellow leaf" />
+
+            <div class="analysis-state" id="analysisState" aria-live="polite">
+              <span class="model-dot"></span>
+              <span id="analysisText">Ready to interpret locally</span>
+            </div>
+
+            <button class="primary-button dark-button" id="weaveButton" type="button">
+              Weave it into the story <span aria-hidden="true">✦</span>
+            </button>
+            <button class="text-link dark-link" id="retryPhoto" type="button">Take another photo</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen artifact" data-screen="artifact">
+        <div class="artifact-stage">
+          <div class="rune-ring r-one"></div><div class="rune-ring r-two"></div>
+          <div class="artifact-reveal-card">
+            <img id="artifactImage" alt="Your story artifact" />
+            <span class="artifact-shine"></span>
+          </div>
+        </div>
+        <div class="reveal-copy">
+          <p class="eyebrow warm">The forest remembers</p>
+          <h2 id="artifactName">The Golden Leaf-Key</h2>
+          <p id="artifactLore">Its veins hold the shape of a road that no map has remembered.</p>
+          <button class="primary-button parchment" id="returnStory" type="button">
+            Return to the story <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen ending" data-screen="ending">
+        <header class="compact-header on-dark">
+          <span></span><span class="mini-mark">Your story</span><span></span>
+        </header>
+        <div class="ending-shell">
+          <p class="eyebrow warm">The end · for now</p>
+          <h2>You helped the forest remember.</h2>
+          <p class="ending-text" id="endingText"></p>
+          <div class="keepsake-row" id="keepsakeRow"></div>
+          <div class="ending-actions">
+            <button class="primary-button parchment" id="restartButton" type="button">Begin again</button>
+            <button class="quiet-button light-outline" id="shareButton" type="button">Share this ending</button>
+          </div>
+          <p class="privacy-footer">No account. No location tracking. Your photographs stay in this browser session.</p>
+        </div>
+      </section>
+
+      <dialog id="aboutDialog">
+        <button class="dialog-close" id="closeAbout" aria-label="Close">×</button>
+        <p class="eyebrow dark">How it works</p>
+        <h2>A story made from where you are.</h2>
+        <ol>
+          <li><span>01</span> Read a short illustrated chapter.</li>
+          <li><span>02</span> Step away from the screen and find something outside.</li>
+          <li><span>03</span> An open CLIP model interprets the photo in your browser.</li>
+          <li><span>04</span> Your discovery becomes part of every chapter that follows.</li>
+        </ol>
+        <p class="dialog-note">The model downloads on first use and is cached by your browser. If it cannot load, you can always name the object yourself.</p>
+      </dialog>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

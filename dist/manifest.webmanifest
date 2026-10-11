@@ -1,0 +1,9 @@
+{
+  "name": "Outside the Lines",
+  "short_name": "Outside",
+  "description": "An outdoor story shaped by the objects you discover.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#18291f",
+  "theme_color": "#18291f"
+}
