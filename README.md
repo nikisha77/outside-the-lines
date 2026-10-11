@@ -10,7 +10,11 @@ No proprietary AI API is required by the application.
 
 ## Animated scene direction
 
-Each chapter is staged as a lightweight CSS/SVG character scene: Eira and the traveler walk together, the traveler raises the photographed artifact while a tree-door opens, and a forest guardian rises as the characters react. The discovery image appears in the character's hand instead of floating over the scene. Motion can be paused and is automatically disabled when the device requests reduced motion.
+Each chapter is staged as a lightweight hand-drawn CSS/SVG comic scene. Barnaby launches and crash-lands, Leo and Billy loop around a boulder, and Maya chases a windblown canvas downhill. Characters blink, anticipate, stretch, recoil, run, and react with eased body motion and timed comic sound effects. Motion can be paused and is automatically disabled when the device requests reduced motion.
+
+Three complete adventures share the same outdoor-discovery mechanic while providing distinct narrative arcs, missions, artifact vocabularies, palettes, and endings: *Barnaby’s Great Bush Disaster*, *Leo and the Lunch-Lover*, and *Maya’s Flying Masterpiece*.
+
+The theme picker uses the supplied three-panel comic artwork as a visual story selector. Every story then unfolds through three deeper chapters and asks the player to step outside for three safe, non-destructive photo discoveries that change the next chapter and final keepsake.
 
 Players may optionally download `onnx-community/gemma-3-270m-it-ONNX` to let the open-weight Gemma model choose a chapter's atmospheric direction. Gemma runs in the browser through Transformers.js; the default handcrafted animations do not wait for it.
 
@@ -27,7 +31,7 @@ Serve the `dist` directory with any static web server. Camera capture requires H
 
 ## Current scope
 
-- One complete story: *The Forest That Forgot*
+- Three complete stories with three chapters each
 - Three real-world discovery missions
 - Local zero-shot image interpretation
 - Personalized artifact names and story continuation

@@ -69,36 +69,33 @@
           <p class="section-intro">Each adventure unfolds around the objects you discover outside.</p>
 
           <div class="theme-grid">
-            <button class="theme-card active-theme" id="forestTheme" type="button">
-              <div class="theme-art forest-card-art" aria-hidden="true">
-                <span class="sun-orb"></span><span class="arch-tree left"></span><span class="arch-tree right"></span>
-                <span class="path-line"></span><span class="wanderer"></span>
-              </div>
+            <button class="theme-card active-theme" data-theme="barnaby" type="button">
+              <div class="theme-art comic-card-art barnaby-card-art" aria-hidden="true"></div>
               <div class="theme-copy">
                 <span class="theme-number">Adventure 01</span>
-                <h3>The Forest That Forgot</h3>
-                <p>Restore a vanishing woodland with three objects from your world.</p>
-                <span class="theme-meta">15 min · 3 discoveries</span>
+                <h3>Barnaby’s Great Bush Disaster</h3>
+                <p>Help one overconfident orange cat recover from the least majestic hunt in history.</p>
+                <span class="theme-meta">12 min · comic adventure</span>
               </div>
             </button>
-            <article class="theme-card locked">
-              <div class="theme-art city-card-art" aria-hidden="true"><span></span><span></span><span></span></div>
+            <button class="theme-card" data-theme="leo" type="button">
+              <div class="theme-art comic-card-art leo-card-art" aria-hidden="true"></div>
               <div class="theme-copy">
                 <span class="theme-number">Adventure 02</span>
-                <h3>The Lantern District</h3>
-                <p>A neighborhood mystery written in shadows and overlooked clues.</p>
-                <span class="theme-meta">Coming soon</span>
+                <h3>Leo and the Lunch-Lover</h3>
+                <p>A mountain picnic becomes an absurd high-speed chase around one enormous boulder.</p>
+                <span class="theme-meta">14 min · comic adventure</span>
               </div>
-            </article>
-            <article class="theme-card locked">
-              <div class="theme-art tiny-card-art" aria-hidden="true"><span></span></div>
+            </button>
+            <button class="theme-card" data-theme="maya" type="button">
+              <div class="theme-art comic-card-art maya-card-art" aria-hidden="true"></div>
               <div class="theme-copy">
                 <span class="theme-number">Adventure 03</span>
-                <h3>The Tiny Kingdom</h3>
-                <p>You have been shrunk. Ordinary nature is now an enormous world.</p>
-                <span class="theme-meta">Coming soon</span>
+                <h3>Maya’s Flying Masterpiece</h3>
+                <p>A peaceful painting day turns into a downhill rescue mission powered by pure chaos.</p>
+                <span class="theme-meta">13 min · comic adventure</span>
               </div>
-            </article>
+            </button>
           </div>
         </div>
       </section>
@@ -130,8 +127,12 @@
                 <path d="M330 250q35-22 70 0t70 0" /><path d="M760 205q28-18 57 0t57 0" />
               </g>
               <g class="traveler traveler-walk">
-                <circle class="skin" cx="560" cy="392" r="25" />
-                <path class="hair" d="M536 390q4-35 31-27q23 5 19 35q-13-20-50-8" />
+                <g class="traveler-face face-curious">
+                  <circle class="skin" cx="560" cy="392" r="25" />
+                  <path class="hair" d="M536 390q4-35 31-27q23 5 19 35q-13-20-50-8" />
+                  <circle class="traveler-eye" cx="552" cy="395" r="2.5" /><circle class="traveler-eye" cx="570" cy="395" r="2.5" />
+                  <path class="traveler-mouth" d="M554 407q7 4 14-1" />
+                </g>
                 <path class="coat" d="M530 420q30-22 62 0l25 116h-111z" />
                 <path class="limb arm-left" d="M534 432l-42 66" />
                 <path class="limb arm-right" d="M587 431l42 61" />
@@ -159,8 +160,12 @@
               <path class="light-path" d="M545 760q25-143 76-213q53 70 88 213z" />
               <g class="traveler-key-position" transform="translate(1180 -105) scale(-1 1)">
               <g class="traveler traveler-key">
-                <circle class="skin" cx="356" cy="454" r="23" />
-                <path class="hair" d="M334 451q5-31 29-26q22 4 18 32q-16-17-47-6" />
+                <g class="traveler-face face-braced">
+                  <circle class="skin" cx="356" cy="454" r="23" />
+                  <path class="hair" d="M334 451q5-31 29-26q22 4 18 32q-16-17-47-6" />
+                  <circle class="traveler-eye" cx="349" cy="457" r="2.4" /><circle class="traveler-eye" cx="365" cy="457" r="2.4" />
+                  <path class="traveler-mouth" d="M350 467q6-3 12 0" />
+                </g>
                 <path class="coat" d="M330 480q27-20 57 0l22 108H307z" />
                 <path class="limb arm-back" d="M333 493l-39 65" />
                 <g class="key-arm">
@@ -191,7 +196,11 @@
                 <circle class="watcher-eye right-eye" cx="675" cy="356" r="8" />
               </g>
               <g class="traveler traveler-watch">
-                <circle class="skin" cx="392" cy="500" r="22" /><path class="hair" d="M372 497q3-30 26-25q21 5 17 31q-14-17-43-6" />
+                <g class="traveler-face face-startled">
+                  <circle class="skin" cx="392" cy="500" r="22" /><path class="hair" d="M372 497q3-30 26-25q21 5 17 31q-14-17-43-6" />
+                  <circle class="traveler-eye" cx="385" cy="503" r="3" /><circle class="traveler-eye" cx="401" cy="503" r="3" />
+                  <circle class="traveler-mouth open-mouth" cx="393" cy="515" r="3.5" />
+                </g>
                 <path class="coat" d="M367 525q26-19 54 0l20 101h-95z" /><path class="limb arm-left" d="M372 536l-35 58" /><path class="limb arm-right" d="M416 535l38 52" />
                 <path class="limb leg-left" d="M377 617l-17 68" /><path class="limb leg-right" d="M408 617l20 68" />
               </g>
@@ -201,6 +210,46 @@
                 <path class="fox-head-svg" d="M545 587l15-23l10 27l26-7l-10 31q-12 23-37 8q-14-11-4-36" />
                 <circle class="fox-eye" cx="574" cy="600" r="3" />
               </g>
+            </g>
+
+            <g class="comic-action barnaby-action">
+              <g class="comic-fence"><rect x="0" y="355" width="1200" height="210" /><path d="M0 355h1200M80 355v210m120-210v210m120-210v210m120-210v210m120-210v210m120-210v210m120-210v210m120-210v210m120-210v210" /></g>
+              <g class="comic-bush"><circle cx="790" cy="575" r="115"/><circle cx="905" cy="575" r="130"/><circle cx="1010" cy="590" r="105"/><circle cx="870" cy="665" r="125"/></g>
+              <g class="squirrel-character">
+                <path class="squirrel-tail" d="M916 302q-78-42-37-108q39-58 87 1q31 44-22 75" />
+                <ellipse class="squirrel-body" cx="947" cy="302" rx="38" ry="53"/><circle class="squirrel-head" cx="973" cy="249" r="31"/><path class="squirrel-ear" d="M953 226l8-29l17 24m9 2l17-25l6 35"/><circle class="comic-eye" cx="984" cy="247" r="4"/><path class="comic-smile" d="M983 261q13 10 22-2"/><ellipse class="acorn" cx="1015" cy="292" rx="13" ry="18"/>
+              </g>
+              <g class="barnaby-character">
+                <path class="cat-tail" d="M322 526q-95 10-66-82q18-52 59-17" />
+                <ellipse class="cat-body" cx="365" cy="515" rx="75" ry="62"/><circle class="cat-head" cx="431" cy="473" r="52"/><path class="cat-ear" d="M392 448l12-48l32 34m20-2l35-33l-3 54"/><circle class="comic-eye cat-eye-left" cx="416" cy="473" r="6"/><circle class="comic-eye cat-eye-right" cx="450" cy="473" r="6"/><path class="cat-mouth" d="M425 493q17 15 34-2"/><path class="cat-leg" d="M334 552l-39 58m94-52l26 61"/>
+              </g>
+              <text class="comic-sfx sfx-swish" x="470" y="315">SWISH!</text><text class="comic-sfx sfx-rustle" x="760" y="440">RUSTLE!</text><text class="comic-sfx sfx-thud" x="920" y="680">THUD!</text>
+              <g class="impact-stars"><path d="M785 470l8 18l20-3l-14 15l10 18l-19-8l-13 16l2-21l-20-7l20-6z"/><path d="M1040 485l6 14l16-2l-11 12l8 14l-15-6l-10 12l2-16l-16-5l15-5z"/></g>
+            </g>
+
+            <g class="comic-action leo-action">
+              <ellipse class="mountain-ground" cx="610" cy="650" rx="580" ry="180"/>
+              <path class="giant-boulder" d="M370 555q-44-202 80-335q131-113 301-23q125 70 105 260q-9 76-44 116z"/>
+              <g class="leo-character">
+                <circle class="runner-head" cx="340" cy="518" r="35"/><path class="runner-hair" d="M308 516q8-45 48-35q33 8 27 50q-30-26-75-15"/><path class="runner-body" d="M313 552q36-24 70 2l31 91h-123z"/><circle class="comic-eye" cx="331" cy="520" r="5"/><circle class="comic-eye" cx="355" cy="520" r="5"/><circle class="panic-mouth" cx="346" cy="539" r="7"/><path class="runner-limb runner-arm-one" d="M319 566l-63 48"/><path class="runner-limb runner-arm-two" d="M380 566l54 54"/><path class="runner-limb runner-leg-one" d="M322 636l-55 69"/><path class="runner-limb runner-leg-two" d="M376 636l60 63"/><path class="picnic-cloth" d="M253 585l-55 35l45 51l52-43z"/><ellipse class="sandwich" cx="259" cy="603" rx="19" ry="11"/>
+              </g>
+              <g class="goat-character">
+                <ellipse class="goat-body" cx="190" cy="620" rx="66" ry="48"/><path class="goat-head" d="M237 574q47-34 72 10q15 36-24 62q-42 19-57-23z"/><path class="goat-horn" d="M260 580q-16-55 14-72m9 65q1-51 34-58"/><circle class="comic-eye" cx="282" cy="596" r="5"/><path class="goat-mouth" d="M302 619l28 9l-29 9"/><path class="goat-leg goat-leg-one" d="M157 650l-25 57m74-59l23 55"/>
+              </g>
+              <g class="dust-cloud"><circle cx="160" cy="700" r="28"/><circle cx="215" cy="707" r="38"/><circle cx="278" cy="705" r="25"/></g>
+              <text class="comic-sfx sfx-chomp" x="230" y="470">CHOMP!</text><text class="comic-sfx sfx-baaa" x="85" y="555">BAAA!</text>
+            </g>
+
+            <g class="comic-action maya-action">
+              <path class="park-hill" d="M0 430q295-100 590 0t610-15v345H0z"/>
+              <g class="flying-canvas"><rect x="760" y="205" width="205" height="150" rx="4"/><rect x="778" y="223" width="169" height="114"/><path d="M790 310q60-90 142-18"/></g>
+              <g class="maya-character">
+                <circle class="runner-head" cx="415" cy="505" r="35"/><path class="maya-hair" d="M382 503q5-50 45-37q31 10 23 48q35-3 65 25q-56-12-94-5z"/><path class="maya-coat" d="M384 541q36-25 72 3l38 100H358z"/><circle class="comic-eye" cx="407" cy="506" r="5"/><circle class="comic-eye" cx="431" cy="506" r="5"/><circle class="panic-mouth" cx="421" cy="526" r="7"/><path class="runner-limb maya-arm-one" d="M392 553l-72-48"/><path class="runner-limb maya-arm-two" d="M451 552l66-55"/><path class="runner-limb maya-leg-one" d="M394 635l-61 70"/><path class="runner-limb maya-leg-two" d="M454 635l67 63"/><path class="maya-scarf" d="M392 539q-78 0-139-49q81 22 146 15"/>
+              </g>
+              <g class="dog-character"><ellipse cx="255" cy="655" rx="48" ry="31"/><circle cx="296" cy="629" r="27"/><path d="M281 611l-4-31l22 24m8 3l24-20l-8 34"/><circle class="comic-eye" cx="306" cy="629" r="4"/><path class="dog-leg" d="M237 678l-18 34m56-35l23 31"/><path class="dog-tail" d="M211 648q-52-32-37-67"/></g>
+              <g class="flying-pages"><path d="M610 280l65-15l12 50l-62 18z"/><path d="M1010 390l70-8l8 54l-66 12z"/><path d="M570 430l54-20l18 42l-51 23z"/></g>
+              <path class="wind-line" d="M110 330q180-95 360-12t350-45t300 15"/><path class="wind-line second" d="M40 390q150-70 300-10t310-30"/>
+              <text class="comic-sfx sfx-zoom" x="620" y="630">ZOOOM!</text>
             </g>
           </svg>
           <div class="scene-caption" id="sceneCaption">Eira steps from the ferns and beckons you onward.</div>
@@ -312,8 +361,8 @@
           <span></span><span class="mini-mark">Your story</span><span></span>
         </header>
         <div class="ending-shell">
-          <p class="eyebrow warm">The end · for now</p>
-          <h2>You helped the forest remember.</h2>
+          <p class="eyebrow warm" id="endingKicker">The end · for now</p>
+          <h2 id="endingTitle">You helped the forest remember.</h2>
           <p class="ending-text" id="endingText"></p>
           <div class="keepsake-row" id="keepsakeRow"></div>
           <div class="ending-actions">

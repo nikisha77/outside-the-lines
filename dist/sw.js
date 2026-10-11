@@ -1,5 +1,5 @@
-const CACHE = "outside-the-lines-v4";
-const CORE = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest"];
+const CACHE = "outside-the-lines-v7";
+const CORE = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest", "./assets/comic-stories.png"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(CORE)));
