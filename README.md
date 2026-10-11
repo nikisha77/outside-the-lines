@@ -1,38 +1,33 @@
 # Outside the Lines
 
-An outdoor story whose missing artifacts must be discovered in the real world.
+A Streamlit adventure that turns three real-world discoveries into a moving,
+hand-drawn story. The application stack is Python from end to end.
 
-## Open AI
+## Open models
 
-Photo interpretation runs in the browser with the open CLIP model `Xenova/clip-vit-base-patch32` through Transformers.js. The model is downloaded on first use and cached by the browser. If it cannot load, the player can describe the discovery manually and the story remains playable.
+- **OpenCLIP ViT-B/32** interprets trail photos in Python.
+- **Kokoro-82M** performs the narration with a natural voice in Python.
+- **Pillow** creates chapter-specific animated WebP scenes in Python.
 
-No proprietary AI API is required by the application.
+No Gemini, proprietary model API, JavaScript application, Node build, account,
+or location tracker is required. Model weights are fetched once and cached.
 
-## Animated scene direction
+## Run
 
-Each chapter is staged as a lightweight hand-drawn CSS/SVG comic scene. Barnaby launches and crash-lands, Leo and Billy loop around a boulder, and Maya chases a windblown canvas downhill. Characters blink, anticipate, stretch, recoil, run, and react with eased body motion and timed comic sound effects. Motion can be paused and is automatically disabled when the device requests reduced motion.
+```bash
+cd outside-the-lines
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/streamlit run app.py
+```
 
-Three complete adventures share the same outdoor-discovery mechanic while providing distinct narrative arcs, missions, artifact vocabularies, palettes, and endings: *Barnaby’s Great Bush Disaster*, *Leo and the Lunch-Lover*, and *Maya’s Flying Masterpiece*.
+Open <http://localhost:8501>. The story itself works immediately. OpenCLIP and
+Kokoro download their model weights the first time their features are used.
 
-The theme picker uses the supplied three-panel comic artwork as a visual story selector. Every story then unfolds through three deeper chapters and asks the player to step outside for three safe, non-destructive photo discoveries that change the next chapter and final keepsake.
+## Structure
 
-Players may optionally download `onnx-community/gemma-3-270m-it-ONNX` to let the open-weight Gemma model choose a chapter's atmospheric direction. Gemma runs in the browser through Transformers.js; the default handcrafted animations do not wait for it.
-
-## Run locally
-
-Serve the `dist` directory with any static web server. Camera capture requires HTTPS or localhost.
-
-## Privacy
-
-- No accounts or location tracking.
-- Photos are passed directly to the local browser model.
-- Object URLs and story state remain in the current browser session.
-- No photo upload endpoint exists.
-
-## Current scope
-
-- Three complete stories with three chapters each
-- Three real-world discovery missions
-- Local zero-shot image interpretation
-- Personalized artifact names and story continuation
-- Installable offline-ready shell
+- `app.py` — Streamlit screens, navigation, session state, and UI
+- `story_data.py` — all three stories and their outdoor missions
+- `ai_services.py` — animation, photo understanding, and narration
+- `assets/` — the supplied comic reference art and its story panels
+- `requirements.txt` — the complete Python environment
