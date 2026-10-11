@@ -107,21 +107,37 @@
         <div class="chapter-art" aria-hidden="true">
           <div class="paper-sky"></div>
           <div class="paint-mountain m-one"></div><div class="paint-mountain m-two"></div>
+          <div class="mist mist-one"></div><div class="mist mist-two"></div>
+          <div class="moving-canopy canopy-one"></div><div class="moving-canopy canopy-two"></div>
           <div class="paint-tree t-left"></div><div class="paint-tree t-right"></div>
           <div class="fox"><span class="fox-tail"></span><span class="fox-body"></span><span class="fox-head"></span></div>
           <div class="story-glow"></div>
+          <div class="falling-leaves">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="wandering-lights"><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="artifact-memory" id="chapterArtifact">
+            <span class="memory-halo"></span>
+            <img id="chapterArtifactImage" alt="" />
+          </div>
+          <div class="film-flicker"></div>
         </div>
         <header class="chapter-header">
           <button class="icon-button light" data-back="choose" aria-label="Back">←</button>
           <div class="chapter-progress" aria-label="Story progress">
             <span class="filled"></span><span></span><span></span><span></span>
           </div>
-          <button class="icon-button light" id="narrateButton" aria-label="Read aloud">♪</button>
+          <div class="chapter-tools">
+            <button class="director-button" id="gemmaButton" type="button" aria-label="Let Gemma direct this scene">Gemma <b>✦</b></button>
+            <button class="icon-button light" id="motionButton" aria-label="Pause scene motion">Ⅱ</button>
+            <button class="icon-button light" id="narrateButton" aria-label="Read aloud">♪</button>
+          </div>
         </header>
         <div class="chapter-copy">
-          <p class="eyebrow warm" id="chapterKicker">Chapter one · The hush</p>
-          <h2 id="chapterTitle">The forest remembered everyone but itself.</h2>
-          <p id="chapterText">
+          <div class="scene-status"><span></span><span id="sceneStatus">Scene in motion</span></div>
+          <p class="eyebrow warm story-line" id="chapterKicker">Chapter one · The hush</p>
+          <h2 class="story-line" id="chapterTitle">The forest remembered everyone but itself.</h2>
+          <p class="story-line" id="chapterText">
             At the edge of the path, you meet Eira—a fox with ink-dark paws. Names are disappearing from the trees, she tells you. Soon, even the way home will be forgotten.
           </p>
           <button class="primary-button parchment" id="continueStory" type="button">
@@ -237,6 +253,24 @@
         </ol>
         <p class="dialog-note">The model downloads on first use and is cached by your browser. If it cannot load, you can always name the object yourself.</p>
       </dialog>
+
+      <dialog id="gemmaDialog" class="gemma-dialog">
+        <button class="dialog-close" id="closeGemma" aria-label="Close">×</button>
+        <p class="eyebrow dark">Optional scene director</p>
+        <h2>Let Gemma direct the atmosphere.</h2>
+        <p>
+          Gemma 3 270M will read the current chapter and your discovered artifact, then choose the scene's atmosphere. The moving illustration is rendered locally with CSS and SVG.
+        </p>
+        <div class="download-note"><span>↓</span><div><strong>One-time large download</strong><br />The open-weight model is several hundred MB and remains cached by your browser.</div></div>
+        <div class="dialog-actions">
+          <button class="primary-button dark-button" id="enableGemma" type="button">Download & direct scene <span>✦</span></button>
+          <button class="text-link dark-link" id="skipGemma" type="button">Keep the handcrafted direction</button>
+        </div>
+      </dialog>
+
+      <div class="director-toast" id="directorToast" aria-live="polite">
+        <span class="model-dot"></span><span id="directorText">Gemma is preparing the scene…</span>
+      </div>
     </main>
     <script type="module" src="./app.js"></script>
   </body>

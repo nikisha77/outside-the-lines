@@ -77,12 +77,26 @@ function showScreen(name) {
 
 function setChapter(index) {
   const copy = chapterCopy[index];
+  const chapterScreen = document.querySelector('[data-screen="chapter"]');
+  chapterScreen.dataset.chapter = String(index);
+  chapterScreen.dataset.mood = index === 2 ? "ember" : index === 1 ? "mist" : "golden";
   document.querySelector("#chapterKicker").textContent = copy.kicker;
   document.querySelector("#chapterTitle").textContent = copy.title;
   document.querySelector("#chapterText").textContent = typeof copy.text === "function" ? copy.text() : copy.text;
   document.querySelector("#continueStory").innerHTML = `${copy.action} <span aria-hidden="true">→</span>`;
   document.querySelectorAll(".chapter-progress span").forEach((bar, barIndex) => {
     bar.classList.toggle("filled", barIndex <= index);
+  });
+  const artifactMemory = document.querySelector("#chapterArtifact");
+  const priorArtifact = story.discoveries[index - 1];
+  artifactMemory.classList.toggle("visible", Boolean(priorArtifact));
+  if (priorArtifact) {
+    document.querySelector("#chapterArtifactImage").src = priorArtifact.image;
+    document.querySelector("#chapterArtifactImage").alt = priorArtifact.name;
+  }
+  document.querySelectorAll(".story-line").forEach((line) => {
+    line.style.animation = "none";
+    requestAnimationFrame(() => { line.style.animation = ""; });
   });
   showScreen("chapter");
 }
@@ -242,6 +256,65 @@ document.querySelector("#narrateButton").addEventListener("click", () => {
   utterance.rate = 0.9;
   speechSynthesis.speak(utterance);
 });
+
+let motionPaused = false;
+document.querySelector("#motionButton").addEventListener("click", () => {
+  motionPaused = !motionPaused;
+  document.body.classList.toggle("motion-paused", motionPaused);
+  const button = document.querySelector("#motionButton");
+  button.textContent = motionPaused ? "▶" : "Ⅱ";
+  button.setAttribute("aria-label", motionPaused ? "Play scene motion" : "Pause scene motion");
+  document.querySelector("#sceneStatus").textContent = motionPaused ? "Scene paused" : "Scene in motion";
+});
+
+const gemmaDialog = document.querySelector("#gemmaDialog");
+const directorToast = document.querySelector("#directorToast");
+const directorText = document.querySelector("#directorText");
+let gemmaDirector = null;
+
+document.querySelector("#gemmaButton").addEventListener("click", () => gemmaDialog.showModal());
+document.querySelector("#closeGemma").addEventListener("click", () => gemmaDialog.close());
+document.querySelector("#skipGemma").addEventListener("click", () => gemmaDialog.close());
+document.querySelector("#enableGemma").addEventListener("click", async () => {
+  gemmaDialog.close();
+  await directSceneWithGemma();
+});
+
+async function directSceneWithGemma() {
+  const chapterScreen = document.querySelector('[data-screen="chapter"]');
+  directorToast.classList.add("visible");
+  directorToast.querySelector(".model-dot").classList.add("loading");
+  try {
+    const { pipeline } = await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1/+esm");
+    if (!gemmaDirector) {
+      directorText.textContent = "Downloading Gemma 3 270M · this happens once…";
+      gemmaDirector = await pipeline("text-generation", "onnx-community/gemma-3-270m-it-ONNX", {
+        device: navigator.gpu ? "webgpu" : "wasm",
+        dtype: "q4",
+        progress_callback: (progress) => {
+          if (progress?.status === "progress" && progress.progress) {
+            directorText.textContent = `Downloading Gemma · ${Math.round(progress.progress)}%`;
+          }
+        },
+      });
+    }
+    directorText.textContent = "Gemma is reading the scene…";
+    const discovery = story.discoveries[Math.max(0, story.currentMission - 1)]?.name || "an unnamed forest memory";
+    const prompt = `You direct an animated hand-painted forest scene. Chapter: ${document.querySelector("#chapterTitle").textContent}. Artifact: ${discovery}. Choose exactly one mood from golden, mist, ember. Reply with only that one word.`;
+    const result = await gemmaDirector(prompt, { max_new_tokens: 8, do_sample: false, return_full_text: false });
+    const generated = String(result?.[0]?.generated_text || "").toLowerCase();
+    const mood = ["golden", "mist", "ember"].find((candidate) => generated.includes(candidate)) || "golden";
+    chapterScreen.dataset.mood = mood;
+    document.querySelector("#sceneStatus").textContent = `Gemma direction · ${mood}`;
+    directorText.textContent = `Gemma chose a ${mood} atmosphere`;
+  } catch (error) {
+    console.warn("Gemma scene direction unavailable", error);
+    directorText.textContent = "Gemma could not load; handcrafted motion remains active.";
+  } finally {
+    directorToast.querySelector(".model-dot").classList.remove("loading");
+    setTimeout(() => directorToast.classList.remove("visible"), 4500);
+  }
+}
 
 document.querySelector("#shareButton").addEventListener("click", async () => {
   const text = "I helped the forest remember in Outside the Lines—an outdoor story shaped by real-world discoveries.";

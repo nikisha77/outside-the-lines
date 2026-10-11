@@ -1,4 +1,4 @@
-const CACHE = "outside-the-lines-v1";
+const CACHE = "outside-the-lines-v2";
 const CORE = ["./", "./index.html", "./styles.css", "./app.js", "./manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

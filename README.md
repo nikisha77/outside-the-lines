@@ -8,6 +8,12 @@ Photo interpretation runs in the browser with the open CLIP model `Xenova/clip-v
 
 No proprietary AI API is required by the application.
 
+## Animated scene direction
+
+Story chapters use lightweight CSS and SVG motion for parallax depth, drifting mist, falling leaves, fireflies, character movement, artifact memories, and paced text reveals. Motion can be paused and is automatically disabled when the device requests reduced motion.
+
+Players may optionally download `onnx-community/gemma-3-270m-it-ONNX` to let the open-weight Gemma model choose a chapter's atmospheric direction. Gemma runs in the browser through Transformers.js; the default handcrafted animations do not wait for it.
+
 ## Run locally
 
 Serve the `dist` directory with any static web server. Camera capture requires HTTPS or localhost.
