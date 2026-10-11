@@ -106,21 +106,104 @@
       <section class="screen chapter" data-screen="chapter">
         <div class="chapter-art" aria-hidden="true">
           <div class="paper-sky"></div>
-          <div class="paint-mountain m-one"></div><div class="paint-mountain m-two"></div>
-          <div class="mist mist-one"></div><div class="mist mist-two"></div>
-          <div class="moving-canopy canopy-one"></div><div class="moving-canopy canopy-two"></div>
-          <div class="paint-tree t-left"></div><div class="paint-tree t-right"></div>
-          <div class="fox"><span class="fox-tail"></span><span class="fox-body"></span><span class="fox-head"></span></div>
-          <div class="story-glow"></div>
-          <div class="falling-leaves">
-            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
-          <div class="wandering-lights"><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="artifact-memory" id="chapterArtifact">
-            <span class="memory-halo"></span>
-            <img id="chapterArtifactImage" alt="" />
-          </div>
-          <div class="film-flicker"></div>
+          <svg class="story-stage" viewBox="0 0 1200 760" preserveAspectRatio="xMidYMid slice" role="presentation">
+            <defs>
+              <linearGradient id="pathGlow" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#dceca5" stop-opacity=".65" />
+                <stop offset="1" stop-color="#9cba69" stop-opacity="0" />
+              </linearGradient>
+              <radialGradient id="doorGlow">
+                <stop offset="0" stop-color="#ecf2aa" stop-opacity=".8" />
+                <stop offset="1" stop-color="#9fc06e" stop-opacity="0" />
+              </radialGradient>
+              <clipPath id="artifactClip"><circle cx="455" cy="386" r="18" /></clipPath>
+            </defs>
+
+            <path class="scene-hill far" d="M0 420 Q210 300 420 408 T850 370 T1200 400 V760 H0Z" />
+            <path class="scene-hill near" d="M0 555 Q180 435 395 545 T805 505 T1200 535 V760 H0Z" />
+            <path class="scene-path" d="M465 760 C520 640 555 565 600 505 C645 565 690 640 770 760Z" />
+            <path class="foreground-tree left" d="M0 0H220L178 178L214 350L160 760H0Z" />
+            <path class="foreground-tree right" d="M1200 0H1010L1048 190L1014 390L1070 760H1200Z" />
+
+            <g class="scene-shot shot-one">
+              <g class="ink-names">
+                <path d="M330 250q35-22 70 0t70 0" /><path d="M760 205q28-18 57 0t57 0" />
+              </g>
+              <g class="traveler traveler-walk">
+                <circle class="skin" cx="560" cy="392" r="25" />
+                <path class="hair" d="M536 390q4-35 31-27q23 5 19 35q-13-20-50-8" />
+                <path class="coat" d="M530 420q30-22 62 0l25 116h-111z" />
+                <path class="limb arm-left" d="M534 432l-42 66" />
+                <path class="limb arm-right" d="M587 431l42 61" />
+                <path class="limb leg-left" d="M540 526l-22 91" />
+                <path class="limb leg-right" d="M580 526l26 91" />
+              </g>
+              <g class="eira eira-lead">
+                <path class="fox-tail-svg" d="M727 555q-75 18-68-48q7-36 61-6q-34-3-28 23q7 27 35 31" />
+                <ellipse class="fox-body-svg" cx="745" cy="527" rx="53" ry="35" />
+                <path class="fox-head-svg" d="M778 477l18-28l12 32l32-9l-12 38q-14 29-45 10q-18-14-5-43" />
+                <path class="fox-leg-svg" d="M720 550v48m48-48v48" />
+                <circle class="fox-eye" cx="813" cy="492" r="3" />
+              </g>
+            </g>
+
+            <g class="scene-shot shot-two">
+              <ellipse class="gate-aura" cx="620" cy="365" rx="235" ry="270" />
+              <path class="gate-tree" d="M385 0h470l-50 105l42 110l-70 115l22 302H441l14-300l-75-120l42-112z" />
+              <path class="door door-left" d="M464 258q72-92 156-92v435H464z" />
+              <path class="door door-right" d="M620 166q85 0 158 92v343H620z" />
+              <path class="rune rune-one" d="M513 325q52-48 108 0" />
+              <path class="rune rune-two" d="M620 325q53-48 109 0" />
+              <path class="root root-one" d="M477 590q-75 28-138 8q-40-13-91 16" />
+              <path class="root root-two" d="M765 590q78 25 144 0q47-17 100 8" />
+              <path class="light-path" d="M545 760q25-143 76-213q53 70 88 213z" />
+              <g class="traveler-key-position" transform="translate(1180 -105) scale(-1 1)">
+              <g class="traveler traveler-key">
+                <circle class="skin" cx="356" cy="454" r="23" />
+                <path class="hair" d="M334 451q5-31 29-26q22 4 18 32q-16-17-47-6" />
+                <path class="coat" d="M330 480q27-20 57 0l22 108H307z" />
+                <path class="limb arm-back" d="M333 493l-39 65" />
+                <g class="key-arm">
+                  <path class="limb" d="M379 492q46-48 76-104" />
+                  <circle class="hand" cx="455" cy="386" r="9" />
+                  <image id="sceneArtifactImage" x="437" y="368" width="36" height="36" preserveAspectRatio="xMidYMid slice" clip-path="url(#artifactClip)" />
+                  <circle class="artifact-ring" cx="455" cy="386" r="25" />
+                </g>
+                <path class="limb leg-left" d="M340 580l-19 76" />
+                <path class="limb leg-right" d="M374 580l21 76" />
+              </g>
+              </g>
+              <g class="eira eira-watch">
+                <path class="fox-tail-svg" d="M874 589q-68 22-65-34q4-35 55-9q-31-1-25 21q6 24 35 22" />
+                <ellipse class="fox-body-svg" cx="889" cy="565" rx="46" ry="30" />
+                <path class="fox-head-svg" d="M916 522l16-25l11 29l28-8l-10 34q-13 25-40 9q-16-12-5-39" />
+                <path class="fox-leg-svg" d="M869 584v41m42-41v41" />
+                <circle class="fox-eye" cx="947" cy="536" r="3" />
+              </g>
+            </g>
+
+            <g class="scene-shot shot-three">
+              <ellipse class="watcher-aura" cx="650" cy="330" rx="210" ry="245" />
+              <g class="forest-watcher">
+                <path class="watcher-body" d="M548 610q12-238 100-334q93 103 112 334z" />
+                <path class="watcher-antlers" d="M628 304q-50-67-35-129m42 118q-6-96 27-157m-8 165q52-70 51-126" />
+                <circle class="watcher-eye left-eye" cx="628" cy="356" r="8" />
+                <circle class="watcher-eye right-eye" cx="675" cy="356" r="8" />
+              </g>
+              <g class="traveler traveler-watch">
+                <circle class="skin" cx="392" cy="500" r="22" /><path class="hair" d="M372 497q3-30 26-25q21 5 17 31q-14-17-43-6" />
+                <path class="coat" d="M367 525q26-19 54 0l20 101h-95z" /><path class="limb arm-left" d="M372 536l-35 58" /><path class="limb arm-right" d="M416 535l38 52" />
+                <path class="limb leg-left" d="M377 617l-17 68" /><path class="limb leg-right" d="M408 617l20 68" />
+              </g>
+              <g class="eira eira-crouch">
+                <path class="fox-tail-svg" d="M507 647q-62 18-59-31q4-30 49-8q-28 0-22 20q6 21 32 19" />
+                <ellipse class="fox-body-svg" cx="522" cy="625" rx="42" ry="27" />
+                <path class="fox-head-svg" d="M545 587l15-23l10 27l26-7l-10 31q-12 23-37 8q-14-11-4-36" />
+                <circle class="fox-eye" cx="574" cy="600" r="3" />
+              </g>
+            </g>
+          </svg>
+          <div class="scene-caption" id="sceneCaption">Eira steps from the ferns and beckons you onward.</div>
         </div>
         <header class="chapter-header">
           <button class="icon-button light" data-back="choose" aria-label="Back">←</button>

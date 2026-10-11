@@ -10,7 +10,7 @@ No proprietary AI API is required by the application.
 
 ## Animated scene direction
 
-Story chapters use lightweight CSS and SVG motion for parallax depth, drifting mist, falling leaves, fireflies, character movement, artifact memories, and paced text reveals. Motion can be paused and is automatically disabled when the device requests reduced motion.
+Each chapter is staged as a lightweight CSS/SVG character scene: Eira and the traveler walk together, the traveler raises the photographed artifact while a tree-door opens, and a forest guardian rises as the characters react. The discovery image appears in the character's hand instead of floating over the scene. Motion can be paused and is automatically disabled when the device requests reduced motion.
 
 Players may optionally download `onnx-community/gemma-3-270m-it-ONNX` to let the open-weight Gemma model choose a chapter's atmospheric direction. Gemma runs in the browser through Transformers.js; the default handcrafted animations do not wait for it.
 

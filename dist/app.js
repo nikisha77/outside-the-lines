@@ -55,18 +55,21 @@ const chapterCopy = [
     title: "The forest remembered everyone but itself.",
     text: "At the edge of the path, you meet Eira—a fox with ink-dark paws. Names are disappearing from the trees, she tells you. Soon, even the way home will be forgotten.",
     action: "Follow Eira",
+    scene: "Eira steps from the ferns and beckons you onward.",
   },
   {
     kicker: "Chapter two · The gate",
     title: "A door appears where there was only bark.",
     text: () => `You hold up ${story.discoveries[0]?.name || "your discovery"}. The gate recognizes its shape. Roots unwind, and a green-lit path opens beneath your feet.`,
     action: "Cross the threshold",
+    scene: "You raise the key. The roots retreat and the tree-door opens.",
   },
   {
     kicker: "Chapter three · The watcher",
     title: "Something has been waiting between the trees.",
     text: () => `${story.discoveries[1]?.name || "Your guardian"} takes its place beside ${story.discoveries[0]?.name || "the key"}. Together, they lead you toward the place where the forest keeps its last memory.`,
     action: "Seek the last memory",
+    scene: "A towering guardian rises. You and Eira hold your ground.",
   },
 ];
 
@@ -83,17 +86,15 @@ function setChapter(index) {
   document.querySelector("#chapterKicker").textContent = copy.kicker;
   document.querySelector("#chapterTitle").textContent = copy.title;
   document.querySelector("#chapterText").textContent = typeof copy.text === "function" ? copy.text() : copy.text;
+  document.querySelector("#sceneCaption").textContent = copy.scene;
   document.querySelector("#continueStory").innerHTML = `${copy.action} <span aria-hidden="true">→</span>`;
   document.querySelectorAll(".chapter-progress span").forEach((bar, barIndex) => {
     bar.classList.toggle("filled", barIndex <= index);
   });
-  const artifactMemory = document.querySelector("#chapterArtifact");
   const priorArtifact = story.discoveries[index - 1];
-  artifactMemory.classList.toggle("visible", Boolean(priorArtifact));
-  if (priorArtifact) {
-    document.querySelector("#chapterArtifactImage").src = priorArtifact.image;
-    document.querySelector("#chapterArtifactImage").alt = priorArtifact.name;
-  }
+  const sceneArtifactImage = document.querySelector("#sceneArtifactImage");
+  if (priorArtifact) sceneArtifactImage.setAttribute("href", priorArtifact.image);
+  else sceneArtifactImage.removeAttribute("href");
   document.querySelectorAll(".story-line").forEach((line) => {
     line.style.animation = "none";
     requestAnimationFrame(() => { line.style.animation = ""; });
